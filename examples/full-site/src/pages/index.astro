@@ -2,6 +2,7 @@
 import { publications } from "@/data/publications";
 import { getSortedPosts } from "@/lib/posts";
 import { site } from "@/site.config";
+import profile from "@/images/profile.svg";
 import PostList from "@thaske/academic-bear/components/PostList.astro";
 import PublicationList from "@thaske/academic-bear/components/PublicationList.astro";
 import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
@@ -37,7 +38,7 @@ const posts = (await getSortedPosts()).slice(0, 3);
       </ul>
     </div>
     <img
-      src="/images/profile.svg"
+      src={profile.src}
       alt="Profile illustration"
       class="intro-image"
       loading="eager"

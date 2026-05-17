@@ -1,4 +1,5 @@
 import type { Publication } from "@thaske/academic-bear/types";
+import publication from "@/images/publication.svg";
 
 export const publications: Publication[] = [
   {
@@ -10,7 +11,7 @@ export const publications: Publication[] = [
     description:
       "A short example publication entry showing how Academic Bear renders papers, metadata, images, and supplemental links.",
     image: {
-      src: "/images/publication.svg",
+      src: publication.src,
       alt: "Abstract diagram of gears and computation",
     },
     links: [
