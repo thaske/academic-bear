@@ -1,8 +1,8 @@
 ---
 import { publications } from "@/data/publications";
+import profile from "@/images/profile.svg";
 import { getSortedPosts } from "@/lib/posts";
 import { site } from "@/site.config";
-import profile from "@/images/profile.svg";
 import PostList from "@thaske/academic-bear/components/PostList.astro";
 import PublicationList from "@thaske/academic-bear/components/PublicationList.astro";
 import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
@@ -49,5 +49,5 @@ const posts = (await getSortedPosts()).slice(0, 3);
 
   <h3>Recent Posts</h3>
   <PostList posts={posts} />
-  <p><a href="/blog/">View all posts</a></p>
+  <p><a href={`${import.meta.env.BASE_URL}/blog/`}>View all posts</a></p>
 </SiteLayout>
