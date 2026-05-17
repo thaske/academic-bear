@@ -4,7 +4,7 @@ export const site = {
   lang: "en",
   title: "Ada Research",
   description: "A small academic homepage and blog built with Academic Bear.",
-  url: "https://example.com",
+  url: "https://thaske.github.io/academic-bear",
   author: "Ada Lovelace",
   email: "ada@example.com",
   social: {

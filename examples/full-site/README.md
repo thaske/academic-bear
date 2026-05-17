@@ -17,6 +17,12 @@ bun run check
 bun run build
 ```
 
+## GitHub Pages
+
+The repository includes `.github/workflows/deploy-example.yml`, which builds this example and deploys it to GitHub Pages on pushes to `master`.
+
+In GitHub, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
+
 This example includes:
 
 - Site config in `src/site.config.ts`

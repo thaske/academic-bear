@@ -6,5 +6,6 @@ import { site } from "./src/site.config.ts";
 
 export default defineConfig({
   site: site.url,
+  base: "/academic-bear",
   integrations: [sitemap()],
 });
