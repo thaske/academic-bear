@@ -1,0 +1,72 @@
+---
+import type { SiteConfig } from "../types";
+
+interface Props {
+  site: SiteConfig;
+  title?: string;
+  description?: string;
+  canonical?: string;
+  type?: "website" | "article";
+  image?: string;
+  robots?: string;
+  siteName?: string;
+  token?: string;
+}
+
+const {
+  site,
+  title = site.title,
+  description = site.description,
+  canonical = Astro.url.href,
+  type = "website",
+  image = site.defaultImage ?? "/static/og-image.png",
+  robots,
+  siteName = site.title,
+  token,
+} = Astro.props;
+const imageUrl = image.startsWith("http")
+  ? image
+  : new URL(image, Astro.url).href;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<link rel="canonical" href={canonical} />
+{robots && <meta name="robots" content={robots} />}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="/rss.xml"
+  title={siteName}
+/>
+<meta name="generator" content={Astro.generator} />
+<meta name="bear" content="look-for-the-bear-necessities" />
+{token && <meta name="token" content={token} />}
+<meta name="author" content={site.author} />
+<meta name="description" content={description} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imageUrl} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": type === "article" ? "BlogPosting" : "WebSite",
+    name: title,
+    headline: title,
+    url: canonical,
+    description,
+    image: imageUrl,
+    author: { "@type": "Person", name: site.author },
+  })}
+/>

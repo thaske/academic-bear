@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+import Head from "../components/Head.astro";
+import type { SiteConfig } from "../types";
+
+interface Props {
+  site: SiteConfig;
+  title?: string;
+  description?: string;
+  canonical?: string;
+  type?: "website" | "article";
+  pageType?: string;
+  heading?: string;
+  headingLink?: string;
+  showNav?: boolean;
+  showFooter?: boolean;
+  footer?: "powered" | "none";
+  image?: string;
+  robots?: string;
+  token?: string;
+}
+
+const {
+  site,
+  title = site.title,
+  description = site.description,
+  canonical = Astro.url.href,
+  type = "website",
+  pageType = "",
+  heading = site.title,
+  headingLink = "/",
+  showNav = true,
+  showFooter = true,
+  footer = "powered",
+  image,
+  robots,
+  token,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.lang ?? "en"}>
+  <!-- Powered by Bear Blog -->
+  <head>
+    <Head
+      site={site}
+      title={title}
+      description={description}
+      canonical={canonical}
+      type={type}
+      image={image}
+      robots={robots}
+      siteName={site.title}
+      token={token}
+    />
+  </head>
+
+  <body
+    class={pageType}
+    onload="(function() { document.cookie = `timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone};path=/`; })()"
+  >
+    <header>
+      <a class="title" href={headingLink}>
+        <h1 set:html={heading} />
+      </a>
+      <nav>
+        {
+          showNav &&
+            (site.nav ?? []).map((item) => <a href={item.href}>{item.label}</a>)
+        }
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      {
+        showFooter && footer === "powered" && (
+          <span>
+            Powered by Astro
+            {" · "}
+            <a href="/rss.xml">RSS</a>
+          </span>
+        )
+      }
+    </footer>
+  </body><!-- ID: bear --><!-- 🌱 -->
+</html>

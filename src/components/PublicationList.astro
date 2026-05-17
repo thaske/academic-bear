@@ -1,0 +1,51 @@
+---
+import type { Publication } from "../types";
+
+interface Props {
+  publications: Publication[];
+  title?: string;
+}
+
+const { publications, title = "Publications" } = Astro.props;
+---
+
+<h3>{title}</h3>
+<ul class="publications">
+  {
+    publications.map((publication) => (
+      <li class="publication">
+        {publication.image && (
+          <img
+            src={publication.image.src}
+            alt={publication.image.alt}
+            class="publication-image"
+            loading="lazy"
+          />
+        )}
+        <div>
+          <a href={publication.href}>{publication.title}</a>
+          <br />
+          <span class="publication-meta">
+            {publication.authors.join(" and ")}. {publication.venue},{" "}
+            {publication.year}.
+          </span>
+          <br />
+          {publication.description}
+          {publication.links?.length ? (
+            <>
+              <br />
+              <span class="publication-links">
+                {publication.links.map((link, index) => (
+                  <>
+                    {index > 0 && " · "}
+                    <a href={link.href}>{link.label}</a>
+                  </>
+                ))}
+              </span>
+            </>
+          ) : null}
+        </div>
+      </li>
+    ))
+  }
+</ul>

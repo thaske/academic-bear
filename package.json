@@ -1,0 +1,26 @@
+{
+  "name": "@thaske/academic-bear",
+  "version": "0.1.0",
+  "description": "Reusable Bear-style Astro blog components and starter assets.",
+  "type": "module",
+  "files": [
+    "src",
+    "public",
+    "README.md"
+  ],
+  "exports": {
+    "./types": "./src/types.ts",
+    "./styles/global.css": "./src/styles/global.css",
+    "./components/*": "./src/components/*",
+    "./layouts/*": "./src/layouts/*",
+    "./lib/*": "./src/lib/*"
+  },
+  "peerDependencies": {
+    "astro": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.3.3",
+    "typescript": "^6.0.3"
+  }
+}

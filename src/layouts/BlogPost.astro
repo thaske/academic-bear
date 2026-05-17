@@ -1,0 +1,58 @@
+---
+import UpvoteButton from "../components/UpvoteButton.astro";
+import { dateFormatter } from "../lib/dates";
+import type { SiteConfig } from "../types";
+import SiteLayout from "./SiteLayout.astro";
+
+interface Props {
+  site: SiteConfig;
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+  uid?: string;
+}
+
+const {
+  site,
+  title,
+  description,
+  pubDate,
+  tags = [],
+  uid = "static-post",
+} = Astro.props;
+---
+
+<SiteLayout
+  site={site}
+  title={`${title} | ${site.title}`}
+  description={description}
+  pageType="post"
+  type="article"
+  token={uid}
+>
+  <h1>{title}</h1>
+  <p>
+    <i
+      ><time datetime={pubDate.toISOString()}
+        >{dateFormatter.format(pubDate)}</time
+      ></i
+    >
+  </p>
+
+  <slot />
+
+  {
+    tags.length > 0 && (
+      <p class="tags">
+        {tags.map((tag) => (
+          <a rel="nofollow" href={`/blog/?q=${encodeURIComponent(tag)}`}>
+            #{tag}
+          </a>
+        ))}
+      </p>
+    )
+  }
+
+  <UpvoteButton uid={uid} title={title} />
+</SiteLayout>

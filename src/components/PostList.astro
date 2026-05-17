@@ -1,0 +1,45 @@
+---
+import { dateFormatter } from "../lib/dates";
+
+interface PostListItem {
+  id: string;
+  data: {
+    title: string;
+    description?: string;
+    pubDate: Date;
+    draft?: boolean;
+    tags?: string[];
+  };
+}
+
+interface Props {
+  posts: PostListItem[];
+  showDescription?: boolean;
+}
+const { posts, showDescription = false } = Astro.props;
+---
+
+<ul class="blog-posts">
+  {
+    posts.length ? (
+      posts.map((post) => (
+        <li data-tags={(post.data.tags ?? []).join(",")}>
+          <span>
+            <i>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {dateFormatter.format(post.data.pubDate)}
+              </time>
+            </i>
+          </span>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          {import.meta.env.DEV && post.data.draft && (
+            <small class="draft-badge">draft</small>
+          )}
+          {showDescription && <p>{post.data.description}</p>}
+        </li>
+      ))
+    ) : (
+      <li>No posts yet</li>
+    )
+  }
+</ul>
