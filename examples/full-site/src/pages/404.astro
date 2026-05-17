@@ -1,0 +1,17 @@
+---
+import { site } from "@/site.config";
+import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  site={site}
+  title={`404 | ${site.title}`}
+  pageType="not-found"
+  showNav={false}
+  showFooter={false}
+>
+  <div class="centered">
+    <h1>404</h1>
+    <p>This page does not exist. <a href="/">Return home</a>.</p>
+  </div>
+</SiteLayout>

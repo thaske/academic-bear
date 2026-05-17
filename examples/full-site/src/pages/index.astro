@@ -1,0 +1,52 @@
+---
+import { publications } from "@/data/publications";
+import { getSortedPosts } from "@/lib/posts";
+import { site } from "@/site.config";
+import PostList from "@thaske/academic-bear/components/PostList.astro";
+import PublicationList from "@thaske/academic-bear/components/PublicationList.astro";
+import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
+
+const posts = (await getSortedPosts()).slice(0, 3);
+---
+
+<SiteLayout
+  site={site}
+  title={site.title}
+  description={site.description}
+  pageType="home"
+>
+  <section class="intro">
+    <div>
+      <p>
+        I am an example researcher working on computing, notation, and tools for
+        understanding complex systems.
+      </p>
+      <p>
+        This homepage, publication list, blog index, blog posts, metadata, RSS,
+        and sitemap are all wired up as a complete Academic Bear site.
+      </p>
+      <ul>
+        <li>{site.email}</li>
+        {
+          Object.entries(site.social ?? {}).map(([key, href]) => (
+            <li>
+              <a href={href}>{key}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <img
+      src="/static/profile.svg"
+      alt="Profile illustration"
+      class="intro-image"
+      loading="eager"
+    />
+  </section>
+
+  <PublicationList title="Selected Publications" publications={publications} />
+
+  <h3>Recent Posts</h3>
+  <PostList posts={posts} />
+  <p><a href="/blog/">View all posts</a></p>
+</SiteLayout>

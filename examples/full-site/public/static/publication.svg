@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Publication diagram">
+  <rect width="240" height="160" rx="14" fill="#f2f2f2"/>
+  <circle cx="76" cy="80" r="34" fill="none" stroke="#3273dc" stroke-width="10"/>
+  <circle cx="150" cy="80" r="26" fill="none" stroke="#01242e" stroke-width="10"/>
+  <path d="M103 80h21" stroke="#444" stroke-width="8" stroke-linecap="round"/>
+  <path d="M172 80h28" stroke="#444" stroke-width="8" stroke-linecap="round"/>
+</svg>

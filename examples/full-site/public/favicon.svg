@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Academic Bear favicon">
+  <rect width="64" height="64" rx="12" fill="#01242e"/>
+  <circle cx="22" cy="24" r="8" fill="#8cc2dd"/>
+  <circle cx="42" cy="24" r="8" fill="#8cc2dd"/>
+  <circle cx="32" cy="36" r="16" fill="#8cc2dd"/>
+  <circle cx="26" cy="33" r="2" fill="#01242e"/>
+  <circle cx="38" cy="33" r="2" fill="#01242e"/>
+  <path d="M27 42c3 3 7 3 10 0" fill="none" stroke="#01242e" stroke-width="3" stroke-linecap="round"/>
+</svg>

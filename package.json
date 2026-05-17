@@ -6,6 +6,7 @@
   "files": [
     "src",
     "public",
+    "examples",
     "README.md"
   ],
   "exports": {
@@ -21,6 +22,8 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "astro": "^6.3.3",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3"
   }
 }

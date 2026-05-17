@@ -1,0 +1,23 @@
+---
+import BlogPost from "@thaske/academic-bear/layouts/BlogPost.astro";
+import { getSortedPosts } from "@/lib/posts";
+import { site } from "@/site.config";
+import { type CollectionEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPost site={site} {...post.data}>
+  <Content />
+</BlogPost>

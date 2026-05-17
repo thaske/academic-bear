@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Academic Bear example site">
+  <rect width="1200" height="630" fill="#01242e"/>
+  <text x="80" y="250" fill="#ffffff" font-family="Verdana, sans-serif" font-size="82" font-weight="700">Academic Bear</text>
+  <text x="80" y="350" fill="#8cc2dd" font-family="Verdana, sans-serif" font-size="44">Full-site example</text>
+  <circle cx="940" cy="290" r="94" fill="#8cc2dd"/>
+  <circle cx="860" cy="210" r="42" fill="#8cc2dd"/>
+  <circle cx="1020" cy="210" r="42" fill="#8cc2dd"/>
+</svg>

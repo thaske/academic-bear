@@ -1,6 +1,6 @@
 # Academic Bear
 
-Reusable Bear-style Astro blog components, layouts, CSS, and starter assets.
+Bear-style Academic blog components, layouts, CSS, and starter assets for Astro.
 
 ## Install
 
@@ -60,6 +60,16 @@ import { site } from "@/site.config";
 <BlogPost site={site} title="Post" description="Example" pubDate={new Date()}>
   <p>Post body.</p>
 </BlogPost>
+```
+
+## Full-site example
+
+See `examples/full-site/` for a complete Astro site with a homepage, publications, blog index, post pages, RSS, sitemap, and local assets.
+
+```sh
+cd examples/full-site
+bun install
+bun run dev
 ```
 
 ## Included exports

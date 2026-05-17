@@ -1,0 +1,62 @@
+---
+import PostList from "@thaske/academic-bear/components/PostList.astro";
+import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
+import { getAllTags, getSortedPosts } from "@/lib/posts";
+import { site } from "@/site.config";
+
+const posts = await getSortedPosts({ draft: true });
+const tags = getAllTags(posts);
+---
+
+<SiteLayout site={site} title={`Blog | ${site.title}`} pageType="blog">
+  <small>
+    <div class="tags">
+      {
+        tags.map((tag) => (
+          <a rel="nofollow" href={`/blog/?q=${encodeURIComponent(tag)}`}>
+            #{tag}
+          </a>
+        ))
+      }
+    </div>
+  </small>
+
+  <p data-filter-status hidden></p>
+
+  <PostList posts={posts} />
+
+  <script>
+    const selectedTag = new URLSearchParams(window.location.search).get("q");
+    const posts = Array.from(
+      document.querySelectorAll(".blog-posts li[data-tags]"),
+    );
+    const status = document.querySelector("[data-filter-status]");
+
+    if (selectedTag) {
+      const normalizedTag = selectedTag.toLowerCase();
+      let visibleCount = 0;
+
+      posts.forEach((post) => {
+        const postTags = (post.getAttribute("data-tags") ?? "")
+          .split(",")
+          .map((tag) => tag.trim().toLowerCase());
+        const isMatch = postTags.includes(normalizedTag);
+
+        post.toggleAttribute("hidden", !isMatch);
+        if (isMatch) visibleCount += 1;
+      });
+
+      if (status) {
+        status.removeAttribute("hidden");
+        status.append(
+          `Showing ${visibleCount} post${visibleCount === 1 ? "" : "s"} tagged #${selectedTag} `,
+        );
+
+        const clearLink = document.createElement("a");
+        clearLink.href = "/blog/";
+        clearLink.textContent = "Clear filter";
+        status.append(clearLink);
+      }
+    }
+  </script>
+</SiteLayout>
