@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Profile illustration">
-  <rect width="240" height="240" rx="20" fill="#f2f2f2"/>
-  <circle cx="120" cy="88" r="42" fill="#8cc2dd"/>
-  <path d="M48 204c9-45 41-72 72-72s63 27 72 72" fill="#01242e" opacity="0.9"/>
-  <path d="M70 46h100l-50-24z" fill="#3273dc"/>
-  <path d="M170 46v34" stroke="#3273dc" stroke-width="8" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Profile image</title>
+  <desc id="desc">A simple profile portrait icon on a soft blue background.</desc>
+  <rect width="180" height="180" rx="8" fill="#eef5ff"/>
+  <circle cx="90" cy="74" r="30" fill="#9fb7d6"/>
+  <path d="M32 180c8-44 34-68 58-68s50 24 58 68H32Z" fill="#9fb7d6"/>
 </svg>
