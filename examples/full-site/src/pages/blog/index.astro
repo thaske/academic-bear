@@ -2,10 +2,12 @@
 import PostList from "@thaske/academic-bear/components/PostList.astro";
 import SiteLayout from "@thaske/academic-bear/layouts/SiteLayout.astro";
 import { getAllTags, getSortedPosts } from "@/lib/posts";
+import { withBase } from "@thaske/academic-bear/lib/paths";
 import { site } from "@/site.config";
 
 const posts = await getSortedPosts({ draft: true });
 const tags = getAllTags(posts);
+const blogIndexPath = withBase("/blog/");
 ---
 
 <SiteLayout site={site} title={`Blog | ${site.title}`} pageType="blog">
@@ -15,7 +17,7 @@ const tags = getAllTags(posts);
         tags.map((tag) => (
           <a
             rel="nofollow"
-            href={`${import.meta.env.BASE_URL}blog/?q=${encodeURIComponent(tag)}`}
+            href={withBase(`/blog/?q=${encodeURIComponent(tag)}`)}
           >
             #{tag}
           </a>
@@ -28,7 +30,7 @@ const tags = getAllTags(posts);
 
   <PostList posts={posts} />
 
-  <script>
+  <script define:vars={{ blogIndexPath }}>
     const selectedTag = new URLSearchParams(window.location.search).get("q");
     const posts = Array.from(
       document.querySelectorAll(".blog-posts li[data-tags]"),
@@ -56,7 +58,7 @@ const tags = getAllTags(posts);
         );
 
         const clearLink = document.createElement("a");
-        clearLink.href = `${import.meta.env.BASE_URL}blog/`;
+        clearLink.href = blogIndexPath;
         clearLink.textContent = "Clear filter";
         status.append(clearLink);
       }
