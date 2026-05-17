@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Head from "../components/Head.astro";
 import { withBase } from "../lib/paths";
-import type { SiteConfig } from "../types";
+import type { NavItem, SiteConfig } from "../types";
 
 interface Props {
   site: SiteConfig;
@@ -67,7 +67,9 @@ const {
       <nav>
         {
           showNav &&
-            (site.nav ?? []).map((item) => <a href={item.href}>{item.label}</a>)
+            (site.nav ?? []).map((item: NavItem) => (
+              <a href={item.href}>{item.label}</a>
+            ))
         }
       </nav>
     </header>
