@@ -31,7 +31,9 @@ const { posts, showDescription = false } = Astro.props;
               </time>
             </i>
           </span>
-          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          <a href={`${import.meta.env.BASE_URL}/blog/${post.id}/`}>
+            {post.data.title}
+          </a>
           {import.meta.env.DEV && post.data.draft && (
             <small class="draft-badge">draft</small>
           )}

@@ -46,7 +46,10 @@ const {
     tags.length > 0 && (
       <p class="tags">
         {tags.map((tag) => (
-          <a rel="nofollow" href={`/blog/?q=${encodeURIComponent(tag)}`}>
+          <a
+            rel="nofollow"
+            href={`${import.meta.env.BASE_URL}/blog/?q=${encodeURIComponent(tag)}`}
+          >
             #{tag}
           </a>
         ))}
