@@ -6,15 +6,15 @@ A complete Astro site using Academic Bear from the repository root.
 
 ```sh
 cd examples/full-site
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
 ## Check and build
 
 ```sh
-bun run check
-bun run build
+npm run check
+npm run build
 ```
 
 ## GitHub Pages

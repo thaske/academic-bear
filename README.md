@@ -5,13 +5,13 @@ Bear-style Academic blog components, layouts, CSS, and starter assets for Astro.
 ## Install
 
 ```sh
-bun add github:thaske/academic-bear
+npm install github:thaske/academic-bear
 ```
 
 For local development next to a consuming site:
 
 ```sh
-bun add ../academic-bear
+npm install ../academic-bear
 ```
 
 ## Use in an Astro blog
@@ -68,20 +68,6 @@ See `examples/full-site/` for a complete Astro site with a homepage, publication
 
 ```sh
 cd examples/full-site
-bun install
-bun run dev
+npm install
+npm run dev
 ```
-
-## Included exports
-
-- `layouts/SiteLayout.astro`
-- `layouts/BlogPost.astro`
-- `components/Head.astro`
-- `components/PostList.astro`
-- `components/PublicationList.astro`
-- `components/HeaderLink.astro`
-- `components/UpvoteButton.astro`
-- `styles/global.css`
-- `types`
-
-Copy `public/` into your site if you want the included favicon and placeholder images.
