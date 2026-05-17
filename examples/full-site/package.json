@@ -15,7 +15,6 @@
     "@astrojs/sitemap": "^3.7.2",
     "@thaske/academic-bear": "file:../..",
     "astro": "^6.3.3",
-    "astro-relative-links": "^0.4.2",
     "typescript": "^6.0.3"
   }
 }
