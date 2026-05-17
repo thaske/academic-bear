@@ -16,15 +16,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #01242e;
-    --heading-color: #eee;
-    --text-color: #ddd;
-    --link-color: #8cc2dd;
-    --visited-color: #8b6fcb;
-    --code-background-color: #000;
-    --code-color: #ddd;
-    --blockquote-color: #ccc;
-    --muted-color: #9aa0a6;
+    --background-color: #1a1a1b;
+    --heading-color: #d7dadc;
+    --text-color: #d7dadc;
+    --link-color: #4fbcff;
+    --visited-color: #c58af9;
+    --code-background-color: #272729;
+    --code-color: #d7dadc;
+    --blockquote-color: #b7bbbf;
+    --muted-color: #818384;
   }
 }
 
@@ -282,7 +282,7 @@ input:not([type="submit"]),
   textarea,
   input:not([type="submit"]),
   .editable {
-    background-color: #004052;
+    background-color: #272729;
   }
 }
 
